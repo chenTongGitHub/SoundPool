@@ -2,6 +2,7 @@ package edu.feicui.soundpooldome.beatbox;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class BeatBoxFragment extends Fragment {
 
     @BindView(R.id.fragment_beat_box_recycler_view)
     RecyclerView recyclerView;
+    private BeatBox beatBox;//日志记录
 
     public BeatBoxFragment() {
         // Required empty public constructor
@@ -29,6 +31,12 @@ public class BeatBoxFragment extends Fragment {
 
     public static BeatBoxFragment newInstance() {
         return new BeatBoxFragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        beatBox = new BeatBox(getActivity());
     }
 
     @Override
@@ -55,7 +63,7 @@ public class BeatBoxFragment extends Fragment {
         }
     }
 
-    private class SoundAdapter extends RecyclerView.Adapter<SoundHolder> {
+    public class SoundAdapter extends RecyclerView.Adapter<SoundHolder> {
 
         @BindView(R.id.list_item_sound_button)
         Button soundButton;

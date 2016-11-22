@@ -1,25 +1,20 @@
 package edu.feicui.soundpooldome;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import edu.feicui.soundpooldome.beatbox.BeatBoxFragment;
 
-public class BeatBoxActivity extends AppCompatActivity {
+public class BeatBoxActivity extends SingleFragmentActivity {
 
-    private Unbinder unbinder;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        unbinder = ButterKnife.bind(this);
-    }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
+    protected Fragment createFragment() {
+        return BeatBoxFragment.newInstance();
     }
+
+
 }
