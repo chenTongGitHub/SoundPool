@@ -2,12 +2,18 @@ package edu.feicui.soundpooldome;
 
 /**
  * Created by Administrator on 2016/11/22.
- * Sound管理类，用来管理声音，将其展示给用户
+ * Sound管理类，用来管理声音，将其展示给用户（Sound对象）
  */
 
 public class Sound {
-    private String mAssetPath;
+    private String mAssetPath;//声音文件路径
     private String mName;
+    /**
+     * SoundPool加载音频的优势：指令刚一发出，立即播放。
+     * 前提：必须预先加载音频。SoundPool加载音频文件有自己的Integer类型ID
+     */
+    private Integer mSoundId;
+
     public Sound(String mAssetPath){
         this.mAssetPath=mAssetPath;
         /**
@@ -27,5 +33,13 @@ public class Sound {
 
     public String getmName() {
         return mName;
+    }
+
+    public Integer getSoundId() {
+        return mSoundId;
+    }
+
+    public void setSoundId(Integer soundId) {
+        mSoundId = soundId;
     }
 }
